@@ -14,9 +14,11 @@ module.exports = {
       },
     ],
     'no-console': 'off',
+    '@typescript-eslint/no-unused-vars': 'warn',
   },
   settings: {
     'import/resolver': {
+      typescript: {},
       node: {
         extensions: ['.js', '.ts'],
       },
