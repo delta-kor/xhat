@@ -8,6 +8,7 @@ export default class Route {
   static mount(express: Application): Application {
     this.mountApi(express);
     this.mountWeb(express);
+    express.use(ExceptionController.notFound);
     express.use(ExceptionController.error);
     return express;
   }
