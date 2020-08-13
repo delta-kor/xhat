@@ -1,0 +1,8 @@
+{
+  "name": "xhat",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/delta-kor/xhat",
+  "author": "delta-kor <deltakbot1@gmail.com>",
+  "license": "MIT"
+}
