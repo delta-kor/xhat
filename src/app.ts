@@ -28,8 +28,7 @@ export default class App {
   }
 
   mountRoutes(): void {
-    Route.mountApi(this.application);
-    Route.mountWeb(this.application);
+    Route.mount(this.application);
   }
 
   start(onStart: (port: number) => void): void {
