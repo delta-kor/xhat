@@ -1,6 +1,7 @@
 import http from 'http';
 import express from 'express';
 import Route from './providers/route';
+import Kernel from './middlewares/kernel';
 
 export default class App {
   public port: number;
@@ -17,7 +18,12 @@ export default class App {
   }
 
   init(): void {
+    this.mountMiddlewares();
     this.mountRoutes();
+  }
+
+  mountMiddlewares(): void {
+    Kernel.init(this.application);
   }
 
   mountRoutes(): void {
