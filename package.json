@@ -1,13 +1,20 @@
 {
   "name": "xhat",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/app.js",
   "repository": "https://github.com/delta-kor/xhat",
   "author": "delta-kor <deltakbot1@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "build": "yarn build-ts",
+    "build-ts": "tsc",
     "lint": "eslint src/**/*.ts",
-    "lint-fix": "eslint --fix src/**/*.ts"
+    "lint-fix": "eslint --fix src/**/*.ts",
+    "deploy": "node dist/app.js",
+    "start": "yarn deploy",
+    "dev": "concurrently \"yarn dev-node\" \"yarn dev-ts\"",
+    "dev-node": "nodemon dist/app.js",
+    "dev-ts": "tsc -w"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^3.9.0",
