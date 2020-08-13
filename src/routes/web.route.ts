@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import ExceptionController from '../controllers/exception.controller';
+import ExceptionController from '@controllers/exception.controller';
 
 const router = Router();
 

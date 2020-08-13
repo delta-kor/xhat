@@ -1,7 +1,8 @@
 import http from 'http';
 import express from 'express';
-import Route from './providers/route';
-import Kernel from './middlewares/kernel';
+import Route from '@providers/route';
+import Kernel from '@middlewares/kernel';
+import Local from '@providers/local';
 
 export default class App {
   public port: number;
@@ -10,8 +11,8 @@ export default class App {
 
   private server: http.Server;
 
-  constructor(port: number) {
-    this.port = port;
+  constructor() {
+    this.port = Local.load().port;
     this.application = express();
     this.server = http.createServer(this.application);
     this.init();

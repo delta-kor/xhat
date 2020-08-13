@@ -12,7 +12,10 @@
     "baseUrl": ".",
     "paths": {
       "@providers/*": ["src/providers/*"],
-      "@routes/*": ["src/routes/*"]
+      "@controllers/*": ["src/controllers/*"],
+      "@middlewares/*": ["src/middlewares/*"],
+      "@routes/*": ["src/routes/*"],
+      "@interfaces/*": ["src/interfaces/*"]
     }
   },
   "include": [

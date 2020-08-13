@@ -39,6 +39,9 @@
   },
   "_moduleAliases": {
     "@providers": "dist/providers",
-    "@routes": "dist/routes"
+    "@controllers": "dist/controllers",
+    "@middlewares": "dist/middlewares",
+    "@routes": "dist/routes",
+    "@interfaces": "dist/interfaces"
   }
 }
