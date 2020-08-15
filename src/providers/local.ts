@@ -6,6 +6,9 @@ export interface LocalValue {
   port: number;
   apiPath: string;
   corsEnabled: boolean;
+  maxUpload: string;
+  maxParam: number;
+  secret: string;
 }
 
 export default class Local {
@@ -16,9 +19,12 @@ export default class Local {
     const port = parseInt(process.env.PORT, 10) || 3000;
     const apiPath = process.env.API_PATH || 'api';
     const corsEnabled = process.env.CORS_ENABLED === 'true';
+    const maxUpload = process.env.MAX_UPLOAD || '10mb';
+    const maxParam = parseInt(process.env.MAX_PARAM, 10) || 100;
+    const secret = process.env.APP_SECRET || 'abcdefghijklmnopqrstuvwxyz';
 
     return {
-      url, port, apiPath, corsEnabled,
+      url, port, apiPath, corsEnabled, maxUpload, maxParam, secret,
     };
   }
 }

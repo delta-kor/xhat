@@ -24,7 +24,7 @@ export default class App {
   }
 
   mountMiddlewares(): void {
-    Kernel.init(this.application);
+    Kernel.mount(this.application);
   }
 
   mountRoutes(): void {
