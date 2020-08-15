@@ -1,7 +1,7 @@
 import { Response } from 'express';
 import { ResponseRejected, ResponseResolved, Status } from '@interfaces/response';
 
-export default class Reply {
+export default class Output {
   static resolve(res: Response, status: Status, data?: any): void {
     const response: ResponseResolved = {
       resolved: true,

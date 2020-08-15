@@ -1,13 +1,13 @@
 import { NextFunction, Request, Response } from 'express';
 import RenderData from '@interfaces/render.data';
 import { Status } from '@interfaces/response';
-import Reply from '@providers/reply';
+import Output from '@providers/output';
 
 export default class ExceptionController {
   static notFound(req: Request, res: Response): any {
     res.status(404);
     if (req.xhr) {
-      Reply.reject(res, Status.NOT_FOUND, 'page not found');
+      Output.reject(res, Status.NOT_FOUND, 'page not found');
       return true;
     }
     const data: RenderData = {
@@ -22,7 +22,7 @@ export default class ExceptionController {
     console.error(err);
     res.status(500);
     if (req.xhr) {
-      Reply.reject(res, Status.INTERNAL_ERROR, 'internal error');
+      Output.reject(res, Status.INTERNAL_ERROR, 'internal error');
       return true;
     }
     const data: RenderData = {
