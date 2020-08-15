@@ -9,6 +9,7 @@ export interface LocalValue {
   maxUpload: string;
   maxParam: number;
   secret: string;
+  cache: number;
 }
 
 export default class Local {
@@ -22,9 +23,10 @@ export default class Local {
     const maxUpload = process.env.MAX_UPLOAD || '10mb';
     const maxParam = parseInt(process.env.MAX_PARAM, 10) || 100;
     const secret = process.env.APP_SECRET || 'abcdefghijklmnopqrstuvwxyz';
+    const cache = parseInt(process.env.CACHE, 10) || 432000000;
 
     return {
-      url, port, apiPath, corsEnabled, maxUpload, maxParam, secret,
+      url, port, apiPath, corsEnabled, maxUpload, maxParam, secret, cache,
     };
   }
 }

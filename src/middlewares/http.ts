@@ -20,7 +20,7 @@ export default class Http {
       secret: Local.load().secret,
       saveUninitialized: true,
       cookie: {
-        maxAge: 432000000,
+        maxAge: Local.load().cache,
       },
     }));
     express.use(compression());
