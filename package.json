@@ -53,6 +53,7 @@
     "@controllers": "dist/controllers",
     "@middlewares": "dist/middlewares",
     "@routes": "dist/routes",
-    "@interfaces": "dist/interfaces"
+    "@interfaces": "dist/interfaces",
+    "@public": "dist/public"
   }
 }

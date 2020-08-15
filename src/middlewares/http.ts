@@ -2,7 +2,7 @@ import { Application, json, urlencoded } from 'express';
 import Local from '@providers/local';
 import flash from 'express-flash';
 import session from 'express-session';
-import compress from 'compression';
+import compression from 'compression';
 
 export default class Http {
   static mount(express: Application): Application {
@@ -23,7 +23,7 @@ export default class Http {
         maxAge: 432000000,
       },
     }));
-    express.use(compress());
+    express.use(compression());
     express.disable('x-powered-by');
     return express;
   }
