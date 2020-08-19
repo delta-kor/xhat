@@ -14,6 +14,7 @@ module.exports = {
       },
     ],
     'no-console': 'off',
+    'no-param-reassign': 'off',
     '@typescript-eslint/no-unused-vars': 'warn',
   },
   settings: {
