@@ -1,0 +1,56 @@
+@import ../font
+@import ../color
+
+.heading
+
+  &.center
+    width: 100%
+    height: 78px
+    position: relative
+
+    .title
+      position: absolute
+      height: 41px
+      left: 24px
+      right: 24px
+      top: 0
+      font-family: $ubuntu
+      font-style: normal
+      font-weight: bold
+      font-size: 36px
+      line-height: 41px
+      text-align: center
+      color: $primary
+
+    .description
+      position: absolute
+      height: 28px
+      left: 24px
+      right: 24px
+      bottom: 0
+      font-family: $ubuntu
+      font-style: normal
+      font-weight: 500
+      font-size: 24px
+      line-height: 28px
+      text-align: center
+      color: $primary-light
+
+  &.image
+    width: 100%
+    height: 245px
+    position: relative
+
+    .image
+      position: absolute
+      width: 138px
+      height: 138px
+      left: calc(50% - 138px / 2)
+      top: 0
+
+    .center
+      position: absolute
+      height: 78px
+      left: 0
+      right: 0
+      bottom: 0

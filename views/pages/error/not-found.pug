@@ -1,4 +1,7 @@
 extends ../../layout
+include ../../components/heading/image
 
 block content
-    h1 404 Not Found
+    #pg-not-found
+        #image
+            +heading-image('/image/icon/emoji/confused.svg', 'Uh oh!', 'Nothing here...')
