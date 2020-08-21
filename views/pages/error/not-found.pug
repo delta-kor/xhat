@@ -1,7 +1,10 @@
 extends ../../layout
 include ../../components/heading/image
+include ../../components/button/icon/left
 
 block content
     #pg-not-found
         #image
             +heading-image('/image/icon/emoji/confused.svg', 'Uh oh!', 'Nothing here...')
+        #back
+            +button-icon-left('Go Back', '/image/icon/default/arrow-left.svg')

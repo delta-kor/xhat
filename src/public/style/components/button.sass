@@ -1,0 +1,33 @@
+@import ../font
+@import ../color
+
+.button
+  width: 170px
+  height: 52px
+  border-radius: 100px
+  position: relative
+
+  &.icon.left
+
+    background: $primary
+
+    .icon
+      position: absolute
+      width: 20px
+      height: 20px
+      left: 24px
+      top: 16px
+
+    .content
+      position: absolute
+      height: 24px
+      left: 44px
+      right: 24px
+      top: calc(50% - 24px / 2)
+      font-family: $ubuntu
+      font-style: normal
+      font-weight: 500
+      font-size: 14px
+      line-height: 24px
+      text-align: right
+      color: $white
