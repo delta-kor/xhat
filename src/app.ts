@@ -7,9 +7,9 @@ import Local from '@providers/local';
 export default class App {
   public port: number;
 
-  private application: express.Application;
+  private readonly application: express.Application;
 
-  private server: http.Server;
+  private readonly server: http.Server;
 
   constructor() {
     this.port = Local.load().port;
