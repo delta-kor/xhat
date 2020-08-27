@@ -3,6 +3,9 @@ import Local from '@providers/local';
 import flash from 'express-flash';
 import session from 'express-session';
 import compression from 'compression';
+import mongo from 'connect-mongo';
+
+const MongoStore = mongo(session);
 
 export default class Http {
   static mount(express: Application): Application {
@@ -14,15 +17,19 @@ export default class Http {
       parameterLimit: Local.load().maxParam,
       extended: true,
     }));
-    express.use(flash());
     express.use(session({
       resave: true,
       secret: Local.load().secret,
       saveUninitialized: true,
       cookie: {
-        maxAge: Local.load().cache,
+        maxAge: Local.load().sessionAge,
       },
+      store: new MongoStore({
+        url: Local.load().dbPath,
+        autoReconnect: true,
+      }),
     }));
+    express.use(flash());
     express.use(compression());
     express.disable('x-powered-by');
     return express;
