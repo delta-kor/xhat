@@ -5,4 +5,9 @@ export default class SignupController {
     res.render('pages/auth/signup/method');
     return true;
   }
+
+  static email(req: Request, res: Response): any {
+    res.render('pages/auth/signup/email');
+    return true;
+  }
 }
