@@ -17,5 +17,7 @@ document.getElementById('sign-up').addEventListener('click', () => {
     return false;
   }
 
+  communicate.send('test', { a: 1 });
+
   return true;
 });

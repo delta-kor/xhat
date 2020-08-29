@@ -23,7 +23,7 @@ export default class Crypto {
           reject(err);
           return false;
         }
-        resolve({ public: publicKey, private: privateKey });
+        resolve({ public: publicKey.replace(/\n/g, ''), private: privateKey });
         return true;
       });
     });
