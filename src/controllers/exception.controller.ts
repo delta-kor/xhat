@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import RenderData from '@interfaces/render.data';
+import Render from '@interfaces/render';
 import { Status } from '@interfaces/response';
 import Output from '@providers/output';
 
@@ -10,7 +10,7 @@ export default class ExceptionController {
       Output.reject(res, Status.NOT_FOUND, 'page not found');
       return true;
     }
-    const data: RenderData = {
+    const data: Render = {
       title: 'Not found',
       description: '404 Not Found',
     };
@@ -25,7 +25,7 @@ export default class ExceptionController {
       Output.reject(res, Status.INTERNAL_ERROR, 'internal error');
       return true;
     }
-    const data: RenderData = {
+    const data: Render = {
       title: 'Internal server error',
       description: 'Internal server error',
     };

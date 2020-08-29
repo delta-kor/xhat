@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import RenderData from '@interfaces/render.data';
+import Render from '@interfaces/render';
 
 export default class SignupController {
   static method(req: Request, res: Response): any {
@@ -8,7 +8,7 @@ export default class SignupController {
   }
 
   static email(req: Request, res: Response): any {
-    const data: RenderData = {
+    const data: Render = {
       title: 'Sign Up',
       description: 'Sign Up With Email',
     };
