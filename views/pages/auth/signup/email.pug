@@ -3,7 +3,9 @@ extends ../../../layout
 block content
     h1 Let's get started
     p It's totally free
-    input(type='email' id='email' placeholder='Email')
-    input(type='email' id='password' placeholder='Password')
-    input(type='email' id='confirm' placeholder='Confirm password')
-    button SIGN UP
+    input#email(type='email' placeholder='Email')
+    input#password(type='password' placeholder='Password')
+    input#confirm(type='password' placeholder='Confirm password')
+    button#sign-up SIGN UP
+
+    script(src='/script/signup/email.js')
