@@ -28,6 +28,7 @@
     "express-flash": "^0.0.2",
     "express-session": "^1.17.1",
     "express-validator": "^6.6.1",
+    "jsonwebtoken": "^8.5.1",
     "module-alias": "^2.2.2",
     "pug": "^3.0.0",
     "shelljs": "^0.8.4"
@@ -40,6 +41,7 @@
     "@types/express-flash": "^0.0.2",
     "@types/express-session": "^1.17.0",
     "@types/express-validator": "^3.0.0",
+    "@types/jsonwebtoken": "^8.5.0",
     "@types/module-alias": "^2.0.0",
     "@types/mongodb": "^3.5.26",
     "@types/mongoose": "^5.7.36",
