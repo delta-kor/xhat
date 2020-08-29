@@ -14,7 +14,7 @@ export default class ExceptionController {
       title: 'Not found',
       description: '404 Not Found',
     };
-    res.render('pages/error/not-found', data);
+    res.render('error/not-found', data);
     return true;
   }
 
@@ -29,7 +29,7 @@ export default class ExceptionController {
       title: 'Internal server error',
       description: 'Internal server error',
     };
-    res.render('pages/error/internal-error', data);
+    res.render('error/internal-error', data);
     next();
     return true;
   }
