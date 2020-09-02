@@ -1,18 +1,6 @@
 import dotenv from 'dotenv';
 import path from 'path';
-
-export interface LocalValue {
-  url: string;
-  port: number;
-  apiPath: string;
-  corsEnabled: boolean;
-  maxUpload: string;
-  maxParam: number;
-  secret: string;
-  cache: number;
-  sessionAge: number;
-  dbPath: string;
-}
+import { LocalValue } from '@interfaces/local-value';
 
 export default class Local {
   static load(): LocalValue {
