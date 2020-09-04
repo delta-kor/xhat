@@ -18,8 +18,7 @@ export default class Local {
     const dbPath = process.env.DB_PATH;
 
     if (!dbPath) {
-      console.error('DB Path is not assigned');
-      process.exit(1);
+      throw new Error('DB Path is not assigned');
     }
 
     return {
