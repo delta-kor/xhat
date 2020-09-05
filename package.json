@@ -13,7 +13,7 @@
     "lint": "eslint src/**/*.ts",
     "lint-fix": "eslint --fix src/**/*.ts",
     "deploy": "node dist/server.js",
-    "start": "yarn build && yarn deploy",
+    "start": "yarn clear && yarn build && yarn deploy",
     "dev": "concurrently -k -p \"[{name}]\" -n \"parcel,typescript,node\" -c \"yellow,cyan,green\" \"yarn dev-parcel\" \"yarn dev-ts\" \"yarn dev-node\"",
     "dev-node": "nodemon dist/server.js",
     "dev-ts": "tsc -w",
