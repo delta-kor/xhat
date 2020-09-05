@@ -8,7 +8,7 @@
   "scripts": {
     "build": "yarn build-ts && yarn build-sass && yarn lint && yarn copy",
     "build-ts": "tsc",
-    "build-client": "parcel build views/pages/**/*.pug --out-dir dist/client",
+    "build-client": "parcel build views/pages/**/*.pug --out-dir dist/client --no-source-maps",
     "copy": "ts-node copy.ts",
     "lint": "eslint src/**/*.ts",
     "lint-fix": "eslint --fix src/**/*.ts",
