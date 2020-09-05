@@ -1,15 +1,16 @@
-import { Request, Response } from 'express';
+import { Response } from 'express';
 import Render from '@interfaces/render';
 import { Ticket } from '@providers/crypto';
+import { ExpressRequest } from '@interfaces/express';
 import Util from '../../util';
 
 export default class SignupController {
-  static method(req: Request, res: Response): any {
+  static method(req: ExpressRequest, res: Response): any {
     res.render('auth/signup/method');
     return true;
   }
 
-  static email(req: Request, res: Response): any {
+  static email(req: ExpressRequest, res: Response): any {
     const ticket: Ticket = req.session.ticket as Ticket;
     const publicKey: string = Util.encode(ticket.public);
     const data: Render = {

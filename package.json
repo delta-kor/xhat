@@ -20,6 +20,7 @@
     "dev-parcel": "parcel watch views/pages/**/*.pug --out-dir dist/client"
   },
   "dependencies": {
+    "axios": "^0.20.0",
     "compression": "^1.7.4",
     "connect-mongo": "^3.2.0",
     "cors": "^2.8.5",
@@ -31,6 +32,7 @@
     "shelljs": "^0.8.4"
   },
   "devDependencies": {
+    "@types/axios": "^0.14.0",
     "@types/compression": "^1.7.0",
     "@types/cors": "^2.8.7",
     "@types/dotenv": "^8.2.0",
@@ -59,5 +61,12 @@
     "@routes": "dist/routes",
     "@interfaces": "dist/interfaces",
     "@public": "dist/public"
-  }
+  },
+  "browserslist": [
+    "last 3 and_chr versions",
+    "last 3 chrome versions",
+    "last 3 opera versions",
+    "last 3 ios_saf versions",
+    "last 3 safari versions"
+  ]
 }

@@ -1,3 +1,8 @@
+import Communicate from '../communicate';
+
+const communicate = new Communicate();
+communicate.send('/test', 'post', { test: 1 });
+
 document.getElementById('sign-up').addEventListener('click', () => {
   const $email = document.getElementById('email') as HTMLInputElement;
   const $password = document.getElementById('password') as HTMLInputElement;
