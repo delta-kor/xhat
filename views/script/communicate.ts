@@ -1,6 +1,13 @@
 import crypto from 'crypto';
 import axios, { Method } from 'axios';
 
+interface Payload {
+  iv: string;
+  key: string;
+  cipher: string;
+  hash: string;
+}
+
 export default class Communicate {
   public key: Buffer;
 
@@ -23,10 +30,15 @@ export default class Communicate {
 
     const keyEncrypted = crypto.publicEncrypt(this.key, encryptionKey);
 
-    const requestData = {
+    const hmac = crypto.createHmac('sha256', encryptionKey);
+    hmac.update(payload);
+    const hash = hmac.digest('base64');
+
+    const requestData: Payload = {
       iv: encryptionIv.toString('base64'),
       key: keyEncrypted.toString('base64'),
       cipher: encrypted,
+      hash,
     };
     axios({
       url, method, data: requestData,
