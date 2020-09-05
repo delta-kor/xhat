@@ -6,10 +6,10 @@
   "author": "delta-kor <deltakbot1@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "yarn build-ts && yarn build-parcel && yarn copy",
+    "clear": "ts-node clear.ts",
+    "build": "yarn build-ts && yarn build-parcel",
     "build-ts": "tsc",
     "build-parcel": "parcel build views/pages/**/*.pug --out-dir dist/client --no-source-maps",
-    "copy": "ts-node copy.ts",
     "lint": "eslint src/**/*.ts",
     "lint-fix": "eslint --fix src/**/*.ts",
     "deploy": "node dist/server.js",
