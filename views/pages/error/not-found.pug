@@ -2,9 +2,13 @@ extends ../../layout/main
 include ../../components/heading/image
 include ../../components/button/icon/left
 
+block head
+    link(href='../../style/main.sass' rel='stylesheet')
+
 block content
     #pg-not-found
         #image
-            +heading-image('/image/icon/emoji/confused.svg', 'Uh oh!', 'Nothing here...')
+            +heading-image('../../image/icon/emoji/confused.svg', 'Uh oh!', 'Nothing here...')
         #back
-            +button-icon-left('Go Back', '/image/icon/default/arrow-left.svg')
+            +button-icon-left('Go Back', '../../image/icon/default/arrow-left.svg')
+
