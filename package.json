@@ -6,18 +6,18 @@
   "author": "delta-kor <deltakbot1@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "yarn build-ts && yarn build-sass && yarn lint && yarn copy",
+    "build": "yarn build-ts && yarn build-parcel && yarn copy",
     "build-ts": "tsc",
-    "build-client": "parcel build views/pages/**/*.pug --out-dir dist/client --no-source-maps",
+    "build-parcel": "parcel build views/pages/**/*.pug --out-dir dist/client --no-source-maps",
     "copy": "ts-node copy.ts",
     "lint": "eslint src/**/*.ts",
     "lint-fix": "eslint --fix src/**/*.ts",
     "deploy": "node dist/server.js",
-    "start": "yarn deploy",
-    "dev": "concurrently \"yarn dev-node\" \"yarn dev-ts\" \"yarn dev-client\"",
+    "start": "yarn build && yarn deploy",
+    "dev": "concurrently -k -p \"[{name}]\" -n \"parcel,typescript,node\" -c \"yellow,cyan,green\" \"yarn dev-parcel\" \"yarn dev-ts\" \"yarn dev-node\"",
     "dev-node": "nodemon dist/server.js",
     "dev-ts": "tsc -w",
-    "dev-client": "parcel watch views/pages/**/*.pug --out-dir dist/client"
+    "dev-parcel": "parcel watch views/pages/**/*.pug --out-dir dist/client"
   },
   "dependencies": {
     "compression": "^1.7.4",
