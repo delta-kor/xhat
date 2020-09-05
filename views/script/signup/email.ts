@@ -1,9 +1,8 @@
 import Communicate from '../communicate';
 
 const communicate = new Communicate();
-communicate.send('/test', 'post', { test: 1 });
 
-document.getElementById('sign-up').addEventListener('click', () => {
+document.getElementById('sign-up').addEventListener('click', async () => {
   const $email = document.getElementById('email') as HTMLInputElement;
   const $password = document.getElementById('password') as HTMLInputElement;
   const $confirm = document.getElementById('confirm') as HTMLInputElement;
@@ -21,6 +20,8 @@ document.getElementById('sign-up').addEventListener('click', () => {
     alert('Check password again');
     return false;
   }
+
+  await communicate.send('/api/auth/signup', 'post', { email, password, confirm });
 
   return true;
 });
