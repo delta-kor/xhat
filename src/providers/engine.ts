@@ -10,8 +10,8 @@ export default function Engine(filePath: string, options: any, callback: any): a
     if (groups) {
       groups.forEach((value) => {
         const blocks = value.split('||');
-        const tag = blocks[0].replace(/#/g, '');
-        const defaultValue = blocks[1].replace(/#/g, '');
+        const tag = blocks[0]?.replace(/#/g, '');
+        const defaultValue = blocks[1]?.replace(/#/g, '');
         const result = options[tag] || defaultValue;
         html = html.replace(value, result);
       });
