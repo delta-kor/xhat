@@ -15,6 +15,7 @@
     "deploy": "node dist/server.js",
     "start": "yarn clear && yarn build && yarn deploy",
     "dev": "concurrently -k -p \"[{name}]\" -n \"parcel,typescript,node\" -c \"yellow,cyan,green\" \"yarn dev-parcel\" \"yarn dev-ts\" \"yarn dev-node\"",
+    "dev-be": "concurrently -k -p \"[{name}]\" -n \"typescript,node\" -c \"cyan,green\" \"yarn dev-ts\" \"yarn dev-node\"",
     "dev-node": "nodemon dist/server.js",
     "dev-ts": "tsc -w",
     "dev-parcel": "parcel watch views/pages/**/*.pug --out-dir dist/client"
