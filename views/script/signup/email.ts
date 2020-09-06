@@ -42,6 +42,6 @@ document.getElementById('sign-up').addEventListener('click', async () => {
     return false;
   }
 
-  alert(resource.SIGNUP_INVALID_EMAIL);
+  alert(resource.UNEXPECTED_ERROR);
   return false;
 });
