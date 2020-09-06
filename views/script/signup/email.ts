@@ -1,5 +1,8 @@
 import Communicate from '../communicate';
+import Resource from '../../../src/providers/resource';
+import { Status } from '../../../src/interfaces/response';
 
+const resource = new Resource(0).export();
 const communicate = new Communicate();
 
 document.getElementById('sign-up').addEventListener('click', async () => {
@@ -11,17 +14,34 @@ document.getElementById('sign-up').addEventListener('click', async () => {
   const password = $password.value;
   const confirm = $confirm.value;
 
-  if (!email || !password || !confirm) {
-    alert('Input all fields');
+  const data = await communicate.send('/api/auth/signup', 'post', { email, password, confirm });
+  const { status } = data;
+
+  if (status === Status.SUCCESS) {
+    window.location.href = '/';
+    return true;
+  }
+
+  if (status === Status.SIGNUP_INVALID_EMAIL) {
+    alert(resource.SIGNUP_INVALID_EMAIL);
     return false;
   }
 
-  if (password !== confirm) {
-    alert('Check password again');
+  if (status === Status.SIGNUP_SHORT_PASSWORD) {
+    alert(resource.SIGNUP_SHORT_PASSWORD);
     return false;
   }
 
-  await communicate.send('/api/auth/signup', 'post', { email, password, confirm });
+  if (status === Status.SIGNUP_PASSWORD_UNMATCH) {
+    alert(resource.SIGNUP_PASSWORD_UNMATCH);
+    return false;
+  }
 
-  return true;
+  if (status === Status.SIGNUP_EXISTING_USER) {
+    alert(resource.SIGNUP_EXISTING_USER);
+    return false;
+  }
+
+  alert(resource.SIGNUP_INVALID_EMAIL);
+  return false;
 });

@@ -12,7 +12,7 @@ export default class Communicate {
     this.key = Buffer.from(keyEncoded, 'base64');
   }
 
-  async send(url: string, method: Method, data: any): Promise<void> {
+  async send(url: string, method: Method, data: any): Promise<any> {
     const payload = JSON.stringify(data);
 
     const encryptionKey = crypto.randomBytes(32);
@@ -34,8 +34,10 @@ export default class Communicate {
       cipher: encrypted,
       hash,
     };
-    axios({
+
+    const response = await axios({
       url, method, data: requestData,
     });
+    return response.data;
   }
 }

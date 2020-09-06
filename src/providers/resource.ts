@@ -18,6 +18,11 @@ interface IResource {
   PASSWORD: string;
   CONFIRM_PASSWORD: string;
   SIGNUP: string;
+  SIGNUP_INVALID_EMAIL: string;
+  SIGNUP_SHORT_PASSWORD: string;
+  SIGNUP_PASSWORD_UNMATCH: string;
+  SIGNUP_EXISTING_USER: string;
+  UNEXPECTED_ERROR: string;
 }
 
 const EnglishResource: IResource = {
@@ -35,6 +40,11 @@ const EnglishResource: IResource = {
   PASSWORD: 'Password',
   CONFIRM_PASSWORD: 'Confirm Password',
   SIGNUP: 'SIGN UP',
+  SIGNUP_INVALID_EMAIL: 'Invalid email',
+  SIGNUP_SHORT_PASSWORD: 'Password too short\nIt must be at least 8 characters',
+  SIGNUP_PASSWORD_UNMATCH: 'Check password again',
+  SIGNUP_EXISTING_USER: 'Email already exists',
+  UNEXPECTED_ERROR: 'Unexpected error occurred\nTry again later',
 };
 
 /* const KoreanResource: IResource = {
