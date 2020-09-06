@@ -18,6 +18,7 @@ export default class Http {
       extended: true,
     }));
     express.use(session({
+      name: 'xht-s',
       resave: true,
       secret: Local.load().secret,
       saveUninitialized: true,
