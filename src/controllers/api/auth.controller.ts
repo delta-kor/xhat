@@ -3,9 +3,11 @@ import { ExpressRequest, ExpressResponse } from '@interfaces/express';
 import { Signup } from '@interfaces/auth';
 import { Status } from '@interfaces/response';
 import Output from '@providers/output';
+import User from '@models/user';
+import { NextFunction } from 'express';
 
 export default class AuthController {
-  static signup(req: ExpressRequest, res: ExpressResponse): any {
+  static signup(req: ExpressRequest, res: ExpressResponse, next: NextFunction): any {
     const data: Signup = req.body;
 
     if (!validator.isEmail(data.email)) {
@@ -21,7 +23,31 @@ export default class AuthController {
       return false;
     }
 
-    Output.resolve(res, Status.SUCCESS);
+    const user = new User({
+      email: data.email,
+      password: data.password,
+    });
+
+    User.findOne({ email: data.email }, (findError, userDoc) => {
+      if (findError) { return next(findError); }
+      if (userDoc) {
+        Output.reject(res, Status.SIGNUP_EXISTING_USER);
+        return false;
+      }
+
+      user.save((saveError) => {
+        if (saveError) { return next(saveError); }
+        req.logIn(user, (logInError) => {
+          if (logInError) { return next(logInError); }
+          return true;
+        });
+        return true;
+      });
+
+      return true;
+    });
+
+    // Output.resolve(res, Status.SUCCESS);
     return true;
   }
 }
