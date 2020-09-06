@@ -5,7 +5,7 @@ import { Status } from '@interfaces/response';
 import Output from '@providers/output';
 
 export default class AuthController {
-  static async signup(req: ExpressRequest, res: ExpressResponse): Promise<any> {
+  static signup(req: ExpressRequest, res: ExpressResponse): any {
     const data: Signup = req.body;
 
     if (!validator.isEmail(data.email)) {
