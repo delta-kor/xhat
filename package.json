@@ -67,6 +67,7 @@
     "@middlewares": "dist/middlewares",
     "@routes": "dist/routes",
     "@interfaces": "dist/interfaces",
+    "@models": "dist/models",
     "@public": "dist/public"
   },
   "browserslist": [
