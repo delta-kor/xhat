@@ -13,9 +13,9 @@ export enum Status {
 }
 
 interface Response {
-    resolved: boolean;
-    status: Status;
-    result?: any;
+  resolved: boolean;
+  status: Status;
+  result?: any;
 }
 
 export interface ResponseResolved extends Response {
