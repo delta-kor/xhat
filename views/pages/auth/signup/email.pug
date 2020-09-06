@@ -4,12 +4,12 @@ block head
     link(href='../../../style/main.sass' rel='stylesheet')
 
 block content
-    h1 Let's get started
-    p It's totally free
+    h1 %SIGNUP_EMAIL_TITLE%
+    p %SIGNUP_EMAIL_DESCRIPTION%
     input#key(type='hidden' value='#publicKey#')
-    input#email(type='email' placeholder='Email')
-    input#password(type='password' placeholder='Password')
-    input#confirm(type='password' placeholder='Confirm password')
-    button#sign-up SIGN UP
+    input#email(type='email' placeholder='%EMAIL%')
+    input#password(type='password' placeholder='%PASSWORD%')
+    input#confirm(type='password' placeholder='%CONFIRM_PASSWORD%')
+    button#sign-up %SIGNUP%
 
     script(src='../../../script/signup/email.ts')
