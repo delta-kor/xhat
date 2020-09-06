@@ -1,12 +1,10 @@
 import { Application, NextFunction } from 'express';
 import { ExpressRequest, ExpressResponse } from '@interfaces/express';
 
-export default class XHR {
+export default class Session {
   static mount(express: Application): Application {
     express.use((req: ExpressRequest, res: ExpressResponse, next: NextFunction) => {
-      if (req.method !== 'GET' || req.xhr) {
-        req.isXHR = true;
-      }
+      req.ticket = req.session.ticket;
       next();
     });
     return express;

@@ -1,8 +1,9 @@
 import { Application } from 'express';
 import Local from '@providers/local';
-import Http from '@middlewares/http';
-import Statics from '@middlewares/statics';
-import XHR from '@middlewares/xhr';
+import Http from './http';
+import Statics from './statics';
+import XHR from './xhr';
+import Session from './session';
 import Cors from './cors';
 import View from './view';
 
@@ -15,6 +16,7 @@ export default class Kernel {
     View.mount(express);
     Statics.mount(express);
     XHR.mount(express);
+    Session.mount(express);
     return express;
   }
 }

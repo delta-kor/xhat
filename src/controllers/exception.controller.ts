@@ -1,11 +1,11 @@
-import { NextFunction, Response } from 'express';
+import { NextFunction } from 'express';
 import Render from '@interfaces/render';
 import { Status } from '@interfaces/response';
 import Output from '@providers/output';
-import { ExpressRequest } from '@interfaces/express';
+import { ExpressRequest, ExpressResponse } from '@interfaces/express';
 
 export default class ExceptionController {
-  static notFound(req: ExpressRequest, res: Response): any {
+  static notFound(req: ExpressRequest, res: ExpressResponse): any {
     res.status(404);
     if (req.isXHR) {
       Output.reject(res, Status.NOT_FOUND, 'page not found');
@@ -19,7 +19,7 @@ export default class ExceptionController {
     return true;
   }
 
-  static error(err: Error, req: ExpressRequest, res: Response, next: NextFunction): any {
+  static error(err: Error, req: ExpressRequest, res: ExpressResponse, next: NextFunction): any {
     console.error(err);
     res.status(500);
     if (req.xhr) {
