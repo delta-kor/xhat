@@ -14,8 +14,8 @@ export default class Kernel {
     if (Local.load().corsEnabled) {
       Cors.mount(express);
     }
-    Passport.mount(express);
     Http.mount(express);
+    Passport.mount(express);
     View.mount(express);
     Statics.mount(express);
     XHR.mount(express);

@@ -39,6 +39,7 @@ export default class AuthController {
         if (saveError) { return next(saveError); }
         req.logIn(user, (logInError) => {
           if (logInError) { return next(logInError); }
+          Output.resolve(res, Status.SUCCESS);
           return true;
         });
         return true;
@@ -47,7 +48,6 @@ export default class AuthController {
       return true;
     });
 
-    // Output.resolve(res, Status.SUCCESS);
     return true;
   }
 }
