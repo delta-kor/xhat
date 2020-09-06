@@ -1,12 +1,6 @@
 import crypto from 'crypto';
 import axios, { Method } from 'axios';
-
-interface Payload {
-  iv: string;
-  key: string;
-  cipher: string;
-  hash: string;
-}
+import { Payload } from '@interfaces/request';
 
 export default class Communicate {
   public key: Buffer;
