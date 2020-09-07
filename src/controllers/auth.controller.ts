@@ -8,6 +8,11 @@ import { NextFunction } from 'express';
 
 export default class AuthController {
   static signup(req: ExpressRequest, res: ExpressResponse, next: NextFunction): any {
+    if (req.user) {
+      Output.reject(res, Status.SIGNUP_ALREADY_LOGINED);
+      return false;
+    }
+
     const data: Signup = req.body;
 
     if (!validator.isEmail(data.email)) {
