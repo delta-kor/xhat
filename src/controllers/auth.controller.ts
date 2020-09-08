@@ -42,11 +42,7 @@ export default class AuthController {
 
       user.save((saveError) => {
         if (saveError) { return next(saveError); }
-        req.logIn(user, (logInError) => {
-          if (logInError) { return next(logInError); }
-          Output.resolve(res, Status.SUCCESS);
-          return true;
-        });
+        Output.resolve(res, Status.SUCCESS);
         return true;
       });
 
