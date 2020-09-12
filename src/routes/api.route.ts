@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import CryptoController from '@controllers/api/crypto.controller';
-import AuthController from '@controllers/api/auth.controller';
+import CryptoController from '@controllers/crypto.controller';
+import AuthController from '@controllers/auth.controller';
 
 const router = Router();
 

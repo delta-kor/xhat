@@ -1,7 +1,7 @@
 import Render from '@interfaces/render';
 import { Ticket } from '@providers/crypto';
 import { ExpressRequest, ExpressResponse } from '@interfaces/express';
-import Util from '../../../util';
+import Util from '../util';
 
 export default class SignupController {
   static method(req: ExpressRequest, res: ExpressResponse): any {
