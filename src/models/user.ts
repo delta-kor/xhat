@@ -1,9 +1,9 @@
 import bcrypt from 'bcrypt-nodejs';
 import { model, Schema } from 'mongoose';
-import { UserDocument } from '@interfaces/model';
+import { UserDocument, UserModel } from '@interfaces/model';
 import Util from '../util';
 
-const UserSchema = new Schema({
+const UserSchema = new Schema<UserDocument>({
   uuid: {
     type: String, unique: true, required: true, default: Util.generateUserId,
   },
@@ -39,5 +39,18 @@ UserSchema.methods
     });
   };
 
-const User = model<UserDocument>('User', UserSchema);
+UserSchema.statics
+  .getUser = async function getUser(uuid: string): Promise<UserDocument | null> {
+    const user = await this.findOne({ uuid }).exec();
+    return user || null;
+  };
+
+UserSchema.statics
+  .emailExists = async function emailExits(email: string): Promise<boolean> {
+    const user = await this.findOne({ email }).exec();
+    return !!user;
+  };
+
+const User = model<UserDocument, UserModel>('User', UserSchema);
+
 export default User;

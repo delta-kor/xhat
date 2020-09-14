@@ -7,7 +7,7 @@ import User from '@models/user';
 import { NextFunction } from 'express';
 
 export default class AuthController {
-  static signup(req: ExpressRequest, res: ExpressResponse, next: NextFunction): any {
+  static async signup(req: ExpressRequest, res: ExpressResponse, next: NextFunction): Promise<any> {
     if (req.user) {
       Output.reject(res, Status.SIGNUP_ALREADY_LOGINED);
       return false;
@@ -33,19 +33,16 @@ export default class AuthController {
       password: data.password,
     });
 
-    User.findOne({ email: data.email }, (findError, userDoc) => {
-      if (findError) { return next(findError); }
-      if (userDoc) {
-        Output.reject(res, Status.SIGNUP_EXISTING_USER);
-        return false;
-      }
+    const emailExists = await User.emailExists(data.email);
 
-      user.save((saveError) => {
-        if (saveError) { return next(saveError); }
-        Output.resolve(res, Status.SUCCESS);
-        return true;
-      });
+    if (emailExists) {
+      Output.reject(res, Status.SIGNUP_EXISTING_USER);
+      return false;
+    }
 
+    await user.save((saveError) => {
+      if (saveError) { return next(saveError); }
+      Output.resolve(res, Status.SUCCESS);
       return true;
     });
 
