@@ -1,0 +1,15 @@
+extends ../../layout/main
+
+block head
+    link(href='../../style/main.sass' rel='stylesheet')
+
+block content
+    h1 %LOGIN_TITLE%
+    p %LOGIN_DESCRIPTION%
+    input#key(type='hidden' value='#publicKey#')
+    input#email(type='email' placeholder='%EMAIL%')
+    input#password(type='password' placeholder='%PASSWORD%')
+    p#forget %FORGET_PASSWORD%
+    button#sign-up %LOGIN%
+
+    script(src='../../script/login/login.ts')

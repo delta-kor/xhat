@@ -23,6 +23,10 @@ interface IResource {
   SIGNUP_PASSWORD_UNMATCH: string;
   SIGNUP_EXISTING_USER: string;
   UNEXPECTED_ERROR: string;
+  LOGIN_TITLE: string;
+  LOGIN_DESCRIPTION: string;
+  FORGET_PASSWORD: string;
+  LOGIN: string;
 }
 
 const EnglishResource: IResource = {
@@ -45,6 +49,10 @@ const EnglishResource: IResource = {
   SIGNUP_PASSWORD_UNMATCH: 'Check password again',
   SIGNUP_EXISTING_USER: 'Email already exists',
   UNEXPECTED_ERROR: 'Unexpected error occurred\nTry again later',
+  LOGIN_TITLE: 'Hello there!',
+  LOGIN_DESCRIPTION: 'Login to xchat account',
+  FORGET_PASSWORD: 'Forgot Password?',
+  LOGIN: 'LOG IN',
 };
 
 /* const KoreanResource: IResource = {
